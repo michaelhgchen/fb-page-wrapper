@@ -1,24 +1,3 @@
-/**
- * Simple Facebook Graph API wrapper to get a page's posts
- *
- * Example:
- *
- * var credentials = {
- *   appId: '1111111111',
- *   appSecret: 'a1b2c3d4e5'
- * };
- *
- * var query = {
- *   pageId: '2222222222',
- *   query: 'fields=id,created_time,status_type,type&limit=25'
- * }
- *
- * var page = require('fb-page-wrapper')(credentials);
- *
- * page.getPosts(query, function(data){
- *   console.log(data);
- * });
- */
 var
   https       = require('https'),
   querystring = require('querystring'),
