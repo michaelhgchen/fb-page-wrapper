@@ -1,14 +1,26 @@
 {
-  "name": "fb-api-wrapper",
+  "name": "fb-page-wrapper",
   "version": "0.0.1",
   "description": "Simple Facebook Graph API wrapper for getting page posts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/unit"
   },
-  "author": "",
+  "author": "Michael Hon-Gen Chen <michaelhgchen@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "promise": "^6.0.1"
-  }
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelhgchen/fb-page-wrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelhgchen/fb-page-wrapper/issues"
+  },
+  "homepage": "https://github.com/michaelhgchen/fb-page-wrapper"
 }
