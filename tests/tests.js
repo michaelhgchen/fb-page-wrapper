@@ -1,31 +1,52 @@
 var assert = require('chai').assert;
 
 describe('FacebookPage', function() {
-  var credentials, page;
+  var credentials, FacebookPage, pageId;
 
   before(function() {
+    // insert a Facebook application's id and secret
     credentials = {
       appId: '',
       appSecret: ''
     };
 
-    page = require('../index')(credentials);
+    // create a FacebookPage instance
+    FacebookPage = require('../index')(credentials);
+
+    // Facebook's /Engineering page's id
+    pageId = '9445547199';
   });
+
+
+
+  describe('getPageId()', function(done) {
+    it('should get correct page id', function(done) {
+      FacebookPage.getPageId('Engineering', function(id) {
+        assert.strictEqual(id, pageId);
+        done();
+      });
+    });
+  });
+
+
 
   describe('getPosts() with fields and limit in query', function(done) {
     var fields, limit, query, posts;
 
     before(function(done) {
+      // choose fields
       fields = ['id', 'created_time'];
 
+      // limit to 21 posts
       limit = 21;
 
       query = {
-        pageId: '9445547199',
+        pageId: pageId,
         query: 'fields=' + fields.join(',') + '&limit=' + limit
       };
 
-      page.getPosts(query, function(data){
+      // query data to test on
+      FacebookPage.getPosts(query, function(data){
         posts = data.data;
         done();
       });

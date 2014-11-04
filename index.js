@@ -39,6 +39,25 @@ FacebookPage.prototype.getAccessToken = function(credentials) {
   });
 }
 
+FacebookPage.prototype.getPageId = function(pageName, cb) {
+  var options;
+
+  options = {
+    hostname:'graph.facebook.com',
+    path: '/' + pageName
+  };
+
+  https.get(options, function(res) {
+    var data = '';
+
+    res.on('data', function(chunk){ data += chunk; });
+    res.on('error', function(err) { console.error(err); });
+    res.on('end', function() {
+      cb(JSON.parse(data).id);
+    });
+  });
+}
+
 FacebookPage.prototype.getPosts = function(query, cb) {
   this._accessToken.then(function(accessToken) {
     options = {

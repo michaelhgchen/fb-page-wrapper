@@ -4,7 +4,7 @@
   "description": "Simple Facebook Graph API wrapper for getting page posts",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/unit"
+    "test": "mocha tests/tests"
   },
   "author": "Michael Hon-Gen Chen <michaelhgchen@gmail.com>",
   "license": "ISC",
