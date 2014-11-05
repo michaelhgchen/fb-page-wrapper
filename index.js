@@ -4,7 +4,7 @@ var
   Promise     = require('promise');
 
 function FacebookPage(credentials) {
-  this.setAccessToken(credentials);
+  if(credentials) this.setAccessToken(credentials);
 }
 
 FacebookPage.prototype.setAccessToken = function(credentials) {
